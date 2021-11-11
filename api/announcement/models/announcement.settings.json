@@ -42,8 +42,7 @@
       "required": true
     },
     "tags": {
-      "collection": "tag",
-      "via": "announcement"
+      "collection": "tag"
     }
   }
 }

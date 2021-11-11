@@ -525,50 +525,6 @@
           },
           "name": {
             "type": "string"
-          },
-          "announcement": {
-            "required": [
-              "id",
-              "title",
-              "text",
-              "date",
-              "is_important"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "title": {
-                "type": "string"
-              },
-              "text": {
-                "type": "string"
-              },
-              "date": {
-                "type": "string"
-              },
-              "images": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "is_important": {
-                "type": "boolean"
-              },
-              "tags": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "created_by": {
-                "type": "string"
-              },
-              "updated_by": {
-                "type": "string"
-              }
-            }
           }
         }
       },
@@ -578,9 +534,6 @@
         ],
         "properties": {
           "name": {
-            "type": "string"
-          },
-          "announcement": {
             "type": "string"
           },
           "created_by": {

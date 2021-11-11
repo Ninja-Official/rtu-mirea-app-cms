@@ -624,9 +624,6 @@
                 "name": {
                   "type": "string"
                 },
-                "announcement": {
-                  "type": "string"
-                },
                 "created_by": {
                   "type": "string"
                 },
