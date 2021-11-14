@@ -1,3 +1,3 @@
-# Strapi application
+# Strapi CMS application
 
-A quick description of your strapi application
+Система управления контентом для мобильного приложения РТУ МИРЭА.
