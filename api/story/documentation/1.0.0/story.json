@@ -616,35 +616,35 @@
                       }
                     }
                   }
+                },
+                "actions": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "required": [
+                      "id",
+                      "title",
+                      "url"
+                    ],
+                    "properties": {
+                      "id": {
+                        "type": "string"
+                      },
+                      "title": {
+                        "type": "string"
+                      },
+                      "url": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "minItems": 0,
+                  "maxItems": 2
                 }
               }
             },
             "minItems": 1,
             "maxItems": 6
-          },
-          "action": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "required": [
-                "id",
-                "title",
-                "url"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "title": {
-                  "type": "string"
-                },
-                "url": {
-                  "type": "string"
-                }
-              }
-            },
-            "minItems": 0,
-            "maxItems": 2
           },
           "start_show_date": {
             "type": "string",
@@ -758,35 +758,35 @@
                       }
                     }
                   }
+                },
+                "actions": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "required": [
+                      "id",
+                      "title",
+                      "url"
+                    ],
+                    "properties": {
+                      "id": {
+                        "type": "string"
+                      },
+                      "title": {
+                        "type": "string"
+                      },
+                      "url": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "minItems": 0,
+                  "maxItems": 2
                 }
               }
             },
             "minItems": 1,
             "maxItems": 6
-          },
-          "action": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "required": [
-                "id",
-                "title",
-                "url"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "title": {
-                  "type": "string"
-                },
-                "url": {
-                  "type": "string"
-                }
-              }
-            },
-            "minItems": 0,
-            "maxItems": 2
           },
           "start_show_date": {
             "type": "string",

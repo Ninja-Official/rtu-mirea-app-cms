@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "11/14/2021 9:32:14 PM"
+    "x-generation-date": "11/14/2021 10:17:50 PM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -5297,35 +5297,35 @@
                       }
                     }
                   }
+                },
+                "actions": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "required": [
+                      "id",
+                      "title",
+                      "url"
+                    ],
+                    "properties": {
+                      "id": {
+                        "type": "string"
+                      },
+                      "title": {
+                        "type": "string"
+                      },
+                      "url": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "minItems": 0,
+                  "maxItems": 2
                 }
               }
             },
             "minItems": 1,
             "maxItems": 6
-          },
-          "action": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "required": [
-                "id",
-                "title",
-                "url"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "title": {
-                  "type": "string"
-                },
-                "url": {
-                  "type": "string"
-                }
-              }
-            },
-            "minItems": 0,
-            "maxItems": 2
           },
           "start_show_date": {
             "type": "string",
@@ -5439,35 +5439,35 @@
                       }
                     }
                   }
+                },
+                "actions": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "required": [
+                      "id",
+                      "title",
+                      "url"
+                    ],
+                    "properties": {
+                      "id": {
+                        "type": "string"
+                      },
+                      "title": {
+                        "type": "string"
+                      },
+                      "url": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "minItems": 0,
+                  "maxItems": 2
                 }
               }
             },
             "minItems": 1,
             "maxItems": 6
-          },
-          "action": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "required": [
-                "id",
-                "title",
-                "url"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "title": {
-                  "type": "string"
-                },
-                "url": {
-                  "type": "string"
-                }
-              }
-            },
-            "minItems": 0,
-            "maxItems": 2
           },
           "start_show_date": {
             "type": "string",

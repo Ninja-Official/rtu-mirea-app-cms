@@ -24,6 +24,13 @@
       "plugin": "upload",
       "required": true,
       "pluginOptions": {}
+    },
+    "actions": {
+      "type": "component",
+      "repeatable": true,
+      "component": "stories.action",
+      "min": 0,
+      "max": 2
     }
   }
 }
