@@ -721,6 +721,37 @@
               }
             }
           },
+          "author": {
+            "required": [
+              "id",
+              "name",
+              "url",
+              "logo"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "url": {
+                "type": "string"
+              },
+              "logo": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -862,6 +893,9 @@
           "stop_show_date": {
             "type": "string",
             "format": "date"
+          },
+          "author": {
+            "type": "string"
           },
           "published_at": {
             "type": "string",
