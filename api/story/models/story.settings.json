@@ -19,7 +19,17 @@
     "pages": {
       "type": "component",
       "repeatable": true,
-      "component": "stories.story-component"
+      "component": "stories.story-component",
+      "required": true,
+      "min": 1,
+      "max": 6
+    },
+    "action": {
+      "type": "component",
+      "repeatable": true,
+      "component": "stories.action",
+      "max": 2,
+      "min": 0
     }
   }
 }
