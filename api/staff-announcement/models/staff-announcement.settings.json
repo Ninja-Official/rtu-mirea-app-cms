@@ -2,8 +2,7 @@
   "kind": "collectionType",
   "collectionName": "staff_announcements",
   "info": {
-    "name": "StaffAnnouncement",
-    "description": ""
+    "name": "Staff Announcement"
   },
   "options": {
     "increments": true,
@@ -22,9 +21,6 @@
     },
     "author": {
       "model": "author"
-    },
-    "app_version": {
-      "type": "string"
     },
     "is_important": {
       "type": "boolean",

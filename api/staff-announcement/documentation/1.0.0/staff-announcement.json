@@ -575,9 +575,6 @@
               }
             }
           },
-          "app_version": {
-            "type": "string"
-          },
           "is_important": {
             "type": "boolean",
             "default": false
@@ -602,9 +599,6 @@
             "type": "string"
           },
           "author": {
-            "type": "string"
-          },
-          "app_version": {
             "type": "string"
           },
           "is_important": {
