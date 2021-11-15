@@ -519,7 +519,6 @@
           "id",
           "title",
           "pages",
-          "start_show_date",
           "stop_show_date"
         ],
         "properties": {
@@ -646,10 +645,6 @@
             "minItems": 1,
             "maxItems": 6
           },
-          "start_show_date": {
-            "type": "string",
-            "format": "date"
-          },
           "stop_show_date": {
             "type": "string",
             "format": "date"
@@ -762,7 +757,6 @@
         "required": [
           "title",
           "pages",
-          "start_show_date",
           "stop_show_date"
         ],
         "properties": {
@@ -885,10 +879,6 @@
             },
             "minItems": 1,
             "maxItems": 6
-          },
-          "start_show_date": {
-            "type": "string",
-            "format": "date"
           },
           "stop_show_date": {
             "type": "string",
