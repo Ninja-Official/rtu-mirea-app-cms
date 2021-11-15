@@ -526,7 +526,8 @@
             "type": "string"
           },
           "title": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 40
           },
           "pages": {
             "type": "array",
@@ -761,7 +762,8 @@
         ],
         "properties": {
           "title": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 40
           },
           "pages": {
             "type": "array",
