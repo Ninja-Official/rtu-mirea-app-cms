@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/staff-announcements",
+      "handler": "staff-announcement.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/staff-announcements/count",
+      "handler": "staff-announcement.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/staff-announcements/:id",
+      "handler": "staff-announcement.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/staff-announcements",
+      "handler": "staff-announcement.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/staff-announcements/:id",
+      "handler": "staff-announcement.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/staff-announcements/:id",
+      "handler": "staff-announcement.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

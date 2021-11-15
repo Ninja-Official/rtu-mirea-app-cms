@@ -1,0 +1,35 @@
+{
+  "kind": "collectionType",
+  "collectionName": "staff_announcements",
+  "info": {
+    "name": "StaffAnnouncement",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "text": {
+      "type": "richtext",
+      "required": true
+    },
+    "author": {
+      "model": "author"
+    },
+    "app_version": {
+      "type": "string"
+    },
+    "is_important": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    }
+  }
+}
