@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "updates",
+  "info": {
+    "name": "Update"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "string",
+      "required": true
+    },
+    "text": {
+      "type": "richtext",
+      "required": true
+    },
+    "app_version": {
+      "type": "string",
+      "required": true
+    }
+  }
+}
