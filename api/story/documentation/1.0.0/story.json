@@ -519,7 +519,8 @@
           "id",
           "title",
           "pages",
-          "stop_show_date"
+          "stop_show_date",
+          "preview"
         ],
         "properties": {
           "id": {
