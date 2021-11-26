@@ -562,10 +562,7 @@
                 "type": "string"
               },
               "logo": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
+                "type": "string"
               },
               "created_by": {
                 "type": "string"
