@@ -641,7 +641,7 @@
               }
             },
             "minItems": 1,
-            "maxItems": 6
+            "maxItems": 12
           },
           "stop_show_date": {
             "type": "string",
@@ -871,7 +871,7 @@
               }
             },
             "minItems": 1,
-            "maxItems": 6
+            "maxItems": 12
           },
           "stop_show_date": {
             "type": "string",
