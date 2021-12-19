@@ -1,8 +1,3 @@
-# Strapi CMS application
+# Strapi application
 
-Система управления контентом для мобильного приложения РТУ МИРЭА.
-
-CMS нужна для управление следующими типами содержимого в приложении:
-1. Истории
-2. События
-3. Новости
+A quick description of your strapi application

@@ -1,0 +1,31 @@
+{
+  "collectionName": "components_stories_pages",
+  "info": {
+    "displayName": "Page",
+    "icon": "pause",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "text": {
+      "type": "text"
+    },
+    "media": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "actions": {
+      "type": "component",
+      "repeatable": true,
+      "component": "stories.action",
+      "max": 2
+    }
+  }
+}
