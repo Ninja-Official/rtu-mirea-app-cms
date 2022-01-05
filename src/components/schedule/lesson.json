@@ -1,0 +1,32 @@
+{
+  "collectionName": "components_schedule_lessons",
+  "info": {
+    "displayName": "Lesson",
+    "icon": "align-justify",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "teachers": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::teacher.teacher"
+    },
+    "weeks": {
+      "type": "json",
+      "required": true
+    },
+    "timeStart": {
+      "type": "time",
+      "required": true
+    },
+    "timeEnd": {
+      "type": "time",
+      "required": true
+    }
+  }
+}

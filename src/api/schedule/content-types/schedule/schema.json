@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "schedules",
+  "info": {
+    "singularName": "schedule",
+    "pluralName": "schedules",
+    "displayName": "Schedule",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "group": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::group.group"
+    },
+    "weekdays": {
+      "type": "component",
+      "repeatable": true,
+      "component": "schedule.weekdays",
+      "required": true
+    }
+  }
+}

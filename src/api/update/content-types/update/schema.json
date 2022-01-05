@@ -4,7 +4,8 @@
   "info": {
     "singularName": "update",
     "pluralName": "updates",
-    "displayName": "Update"
+    "displayName": "Update",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -22,7 +23,7 @@
       "type": "text",
       "required": true
     },
-    "app_version": {
+    "appVersion": {
       "type": "string",
       "required": true
     }

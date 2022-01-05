@@ -4,7 +4,8 @@
   "info": {
     "singularName": "story",
     "pluralName": "stories",
-    "displayName": "Story"
+    "displayName": "Story",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -21,17 +22,17 @@
       "component": "stories.page",
       "required": true
     },
-    "stop_show_date": {
+    "stopShowDate": {
       "type": "date",
       "required": true
     },
     "preview": {
-      "allowedTypes": [
-        "images"
-      ],
       "type": "media",
       "multiple": false,
-      "required": true
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
     },
     "author": {
       "type": "relation",

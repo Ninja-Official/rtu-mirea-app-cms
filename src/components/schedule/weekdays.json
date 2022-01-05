@@ -1,0 +1,40 @@
+{
+  "collectionName": "components_schedule_weekdays",
+  "info": {
+    "displayName": "Weekdays",
+    "icon": "calendar"
+  },
+  "options": {},
+  "attributes": {
+    "monday": {
+      "type": "component",
+      "repeatable": true,
+      "component": "schedule.lesson"
+    },
+    "tuesday": {
+      "type": "component",
+      "repeatable": true,
+      "component": "schedule.lesson"
+    },
+    "wednesday": {
+      "type": "component",
+      "repeatable": true,
+      "component": "schedule.lesson"
+    },
+    "thursday": {
+      "type": "component",
+      "repeatable": true,
+      "component": "schedule.lesson"
+    },
+    "friday": {
+      "type": "component",
+      "repeatable": true,
+      "component": "schedule.lesson"
+    },
+    "saturday": {
+      "type": "component",
+      "repeatable": true,
+      "component": "schedule.lesson"
+    }
+  }
+}
