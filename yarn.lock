@@ -1801,7 +1801,7 @@
 
 "@strapi/plugin-upload@4.0.3":
   version "4.0.3"
-  resolved "https://registry.npmjs.org/@strapi/plugin-upload/-/plugin-upload-4.0.3.tgz"
+  resolved "https://registry.yarnpkg.com/@strapi/plugin-upload/-/plugin-upload-4.0.3.tgz#e76f1fc56e15a3603b28d5114389eec4b303801e"
   integrity sha512-8Nvl7lip4eC6sJY5XQ2uSj9i6hR7PogxseiCoMRa0jPkLvs1V8CVhQ1zigpgmDGT+P3Xq7yaOWK4+5vX29kpxw==
   dependencies:
     "@strapi/helper-plugin" "4.0.3"
