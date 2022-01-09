@@ -1976,6 +1976,20 @@
                       "text": {
                         "type": "string"
                       },
+                      "images": {
+                        "type": "array",
+                        "items": {
+                          "oneOf": [
+                            {
+                              "type": "integer"
+                            },
+                            {
+                              "type": "string"
+                            }
+                          ],
+                          "example": "string or id"
+                        }
+                      },
                       "isImportant": {
                         "type": "boolean"
                       }
