@@ -3,11 +3,11 @@ module.exports = ({ env }) => ({
     config: {
       provider: 'aws-s3',
       providerOptions: {
-        accessKeyId: 'AKIASUPIR666T2TH3S3Q',
-        secretAccessKey: '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',
-        region: 'eu-west-2',
+        accessKeyId: env('AWS_ACCESS_KEY_ID'),
+        secretAccessKey: env('AWS_ACCESS_SECRET'),
+        region: env('AWS_REGION'),
         params: {
-          Bucket: 'mirea-strapi',
+          Bucket: env('AWS_BUCKET'),
         },
       },
     },
