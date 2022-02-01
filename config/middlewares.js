@@ -31,4 +31,5 @@ module.exports = [
   },
   'strapi::favicon',
   'strapi::public',
+  'strapi::session',
 ];
