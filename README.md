@@ -1,6 +1,6 @@
-# Strapi application
+# Mobile app CMS
 
-A quick description of your strapi application
+CMS для [мобильного приложения](https://github.com/Ninja-Official/rtu-mirea-mobile), в котором представлены следующие типы контента: обновления, новости, сторис и прочие статические и динамические данные.
 
 
 # Установка
