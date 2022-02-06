@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2022-01-08T17:34:31.268Z"
+    "x-generation-date": "2022-02-06T12:58:24.828Z"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -37649,6 +37649,9 @@
                               "appVersion": {
                                 "type": "string"
                               },
+                              "buildNumber": {
+                                "type": "integer"
+                              },
                               "createdAt": {
                                 "type": "string",
                                 "format": "date-time"
@@ -38240,6 +38243,9 @@
                             "appVersion": {
                               "type": "string"
                             },
+                            "buildNumber": {
+                              "type": "integer"
+                            },
                             "createdAt": {
                               "type": "string",
                               "format": "date-time"
@@ -38716,6 +38722,9 @@
                       },
                       "appVersion": {
                         "type": "string"
+                      },
+                      "buildNumber": {
+                        "type": "integer"
                       }
                     }
                   }
@@ -38754,6 +38763,9 @@
                             },
                             "appVersion": {
                               "type": "string"
+                            },
+                            "buildNumber": {
+                              "type": "integer"
                             },
                             "createdAt": {
                               "type": "string",
@@ -39255,6 +39267,9 @@
                             "appVersion": {
                               "type": "string"
                             },
+                            "buildNumber": {
+                              "type": "integer"
+                            },
                             "createdAt": {
                               "type": "string",
                               "format": "date-time"
@@ -39745,6 +39760,9 @@
                       },
                       "appVersion": {
                         "type": "string"
+                      },
+                      "buildNumber": {
+                        "type": "integer"
                       },
                       "createdAt": {
                         "type": "string",

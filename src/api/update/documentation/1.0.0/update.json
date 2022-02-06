@@ -31,6 +31,9 @@
                               "appVersion": {
                                 "type": "string"
                               },
+                              "buildNumber": {
+                                "type": "integer"
+                              },
                               "createdAt": {
                                 "type": "string",
                                 "format": "date-time"
@@ -622,6 +625,9 @@
                             "appVersion": {
                               "type": "string"
                             },
+                            "buildNumber": {
+                              "type": "integer"
+                            },
                             "createdAt": {
                               "type": "string",
                               "format": "date-time"
@@ -1098,6 +1104,9 @@
                       },
                       "appVersion": {
                         "type": "string"
+                      },
+                      "buildNumber": {
+                        "type": "integer"
                       }
                     }
                   }
@@ -1136,6 +1145,9 @@
                             },
                             "appVersion": {
                               "type": "string"
+                            },
+                            "buildNumber": {
+                              "type": "integer"
                             },
                             "createdAt": {
                               "type": "string",
@@ -1637,6 +1649,9 @@
                             "appVersion": {
                               "type": "string"
                             },
+                            "buildNumber": {
+                              "type": "integer"
+                            },
                             "createdAt": {
                               "type": "string",
                               "format": "date-time"
@@ -2127,6 +2142,9 @@
                       },
                       "appVersion": {
                         "type": "string"
+                      },
+                      "buildNumber": {
+                        "type": "integer"
                       },
                       "createdAt": {
                         "type": "string",

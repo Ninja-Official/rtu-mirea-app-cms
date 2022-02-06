@@ -26,6 +26,11 @@
     "appVersion": {
       "type": "string",
       "required": true
+    },
+    "buildNumber": {
+      "type": "integer",
+      "required": true,
+      "unique": true
     }
   }
 }
