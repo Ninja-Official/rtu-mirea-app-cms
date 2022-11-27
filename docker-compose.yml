@@ -51,9 +51,9 @@ services:
 
     volumes:
       - ./config:/opt/app/config
-      - ./src:/opt/app/src
-      - ./package.json:/opt/package.json
-      - ./yarn.lock:/opt/yarn.lock
+      # - ./src:/opt/app/src
+      # - ./package.json:/opt/package.json
+      # - ./yarn.lock:/opt/yarn.lock
       - ./.env:/opt/app/.env
       - ./public/uploads:/opt/app/public/uploads
     ports:
@@ -96,8 +96,8 @@ volumes:
 
 networks:
   proxy:
-    external:
-      name: nginx-proxy
+#    external:
+#      name: nginx-proxy
 
   strapi-bridge:
     name: Strapi
