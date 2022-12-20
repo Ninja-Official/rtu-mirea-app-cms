@@ -1,19 +1,19 @@
 module.exports = [
   'strapi::errors',
-  {
-    name: 'strapi::security',
-    config: {
-      contentSecurityPolicy: {
-        useDefaults: true,
-        directives: {
-          'connect-src': ["'self'", 'https:'],
-          'img-src': ["'self'", 'data:', 'blob:', 'mirea-strapi.s3.eu-west-2.amazonaws.com'],
-          'media-src': ["'self'", 'data:', 'blob:', 'mirea-strapi.s3.eu-west-2.amazonaws.com'],
-          upgradeInsecureRequests: null,
-        },
-      },
-    },
-  },
+  // {
+  //   name: 'strapi::security',
+  //   config: {
+  //     contentSecurityPolicy: {
+  //       useDefaults: true,
+  //       directives: {
+  //         'connect-src': ["'self'", 'https:'],
+  //         'img-src': ["'self'", 'data:', 'blob:', 'cdn.cms.mirea.ninja'],
+  //         'media-src': ["'self'", 'data:', 'blob:', 'cdn.cms.mirea.ninja'],
+  //         upgradeInsecureRequests: null,
+  //       },
+  //     },
+  //   },
+  // },
   'strapi::cors',
   'strapi::poweredBy',
   'strapi::logger',
@@ -32,4 +32,5 @@ module.exports = [
   'strapi::favicon',
   'strapi::public',
   'strapi::session',
+  'strapi::security',
 ];

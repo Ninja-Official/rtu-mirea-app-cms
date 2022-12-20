@@ -4,6 +4,9 @@ module.exports = ({ env }) => ({
       jwtSecret: env("JWT_SECRET"),
     },
   },
+  "import-export-entries": {
+    enabled: true,
+  },
   upload: {
     config: {
       provider: "aws-s3-cdn",
@@ -15,8 +18,8 @@ module.exports = ({ env }) => ({
         params: {
           Bucket: env("AWS_BUCKET"),
         },
-        baseUrl: env('CDN_URL'), //optional
+        baseUrl: env("CDN_URL"), //optional
       },
     },
   },
-})
+});

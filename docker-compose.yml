@@ -14,24 +14,28 @@ services:
       - certs:/etc/nginx/certs:ro
       - /var/run/docker.sock:/tmp/docker.sock:ro
       - /usr/share/nginx/html
+      - acme:/etc/acme.sh
     networks:
       - proxy
     restart: always
 
 
   letsencrypt:
-    image: nginxproxy/acme-companion
+    image: nginxproxy/acme-companion:latest
     container_name: nginx-proxy-le
     volumes_from:
       - nginx-proxy
     volumes:
       - certs:/etc/nginx/certs:rw
       - /var/run/docker.sock:/var/run/docker.sock:ro
+      - acme:/etc/acme.sh
     restart: always
 
   strapi:
     hostname: strapi
-    build: .
+    build: 
+      context: .
+      dockerfile: Dockerfile.prod
     image: strapi:latest
     restart: unless-stopped
     env_file: .env
@@ -56,8 +60,11 @@ services:
       # - ./yarn.lock:/opt/yarn.lock
       - ./.env:/opt/app/.env
       - ./public/uploads:/opt/app/public/uploads
+    # ports:
+    #   - '1337:1337'
+
     ports:
-      - '1337:1337'
+      - '1337:80'
     expose:
       - 1337
     networks:
@@ -92,12 +99,13 @@ volumes:
   vhost:
   dhparam:
   certs:
+  acme:
 
 
 networks:
   proxy:
-#    external:
-#      name: nginx-proxy
+    external:
+      name: nginx-proxy
 
   strapi-bridge:
     name: Strapi
