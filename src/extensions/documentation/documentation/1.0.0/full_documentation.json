@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2022-11-26T14:36:55.913Z"
+    "x-generation-date": "2022-12-20T10:37:31.048Z"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -46468,7 +46468,7 @@
           {
             "name": "pagination[withCount]",
             "in": "query",
-            "description": "Retun page/pageSize (default: true)",
+            "description": "Return page/pageSize (default: true)",
             "deprecated": false,
             "required": false,
             "schema": {
@@ -46545,6 +46545,16 @@
               "type": "object"
             },
             "style": "deepObject"
+          },
+          {
+            "name": "locale",
+            "in": "query",
+            "description": "Locale to apply",
+            "deprecated": false,
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "operationId": "get/announcements"
@@ -46963,7 +46973,7 @@
           {
             "name": "pagination[withCount]",
             "in": "query",
-            "description": "Retun page/pageSize (default: true)",
+            "description": "Return page/pageSize (default: true)",
             "deprecated": false,
             "required": false,
             "schema": {
@@ -47040,6 +47050,16 @@
               "type": "object"
             },
             "style": "deepObject"
+          },
+          {
+            "name": "locale",
+            "in": "query",
+            "description": "Locale to apply",
+            "deprecated": false,
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "operationId": "get/authors"
@@ -47458,7 +47478,7 @@
           {
             "name": "pagination[withCount]",
             "in": "query",
-            "description": "Retun page/pageSize (default: true)",
+            "description": "Return page/pageSize (default: true)",
             "deprecated": false,
             "required": false,
             "schema": {
@@ -47535,6 +47555,16 @@
               "type": "object"
             },
             "style": "deepObject"
+          },
+          {
+            "name": "locale",
+            "in": "query",
+            "description": "Locale to apply",
+            "deprecated": false,
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "operationId": "get/events"
@@ -47953,7 +47983,7 @@
           {
             "name": "pagination[withCount]",
             "in": "query",
-            "description": "Retun page/pageSize (default: true)",
+            "description": "Return page/pageSize (default: true)",
             "deprecated": false,
             "required": false,
             "schema": {
@@ -48030,6 +48060,16 @@
               "type": "object"
             },
             "style": "deepObject"
+          },
+          {
+            "name": "locale",
+            "in": "query",
+            "description": "Locale to apply",
+            "deprecated": false,
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "operationId": "get/groups"
@@ -48448,7 +48488,7 @@
           {
             "name": "pagination[withCount]",
             "in": "query",
-            "description": "Retun page/pageSize (default: true)",
+            "description": "Return page/pageSize (default: true)",
             "deprecated": false,
             "required": false,
             "schema": {
@@ -48525,6 +48565,16 @@
               "type": "object"
             },
             "style": "deepObject"
+          },
+          {
+            "name": "locale",
+            "in": "query",
+            "description": "Locale to apply",
+            "deprecated": false,
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "operationId": "get/schedules"
@@ -48943,7 +48993,7 @@
           {
             "name": "pagination[withCount]",
             "in": "query",
-            "description": "Retun page/pageSize (default: true)",
+            "description": "Return page/pageSize (default: true)",
             "deprecated": false,
             "required": false,
             "schema": {
@@ -49020,6 +49070,16 @@
               "type": "object"
             },
             "style": "deepObject"
+          },
+          {
+            "name": "locale",
+            "in": "query",
+            "description": "Locale to apply",
+            "deprecated": false,
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "operationId": "get/staff-announcements"
@@ -49438,7 +49498,7 @@
           {
             "name": "pagination[withCount]",
             "in": "query",
-            "description": "Retun page/pageSize (default: true)",
+            "description": "Return page/pageSize (default: true)",
             "deprecated": false,
             "required": false,
             "schema": {
@@ -49515,6 +49575,16 @@
               "type": "object"
             },
             "style": "deepObject"
+          },
+          {
+            "name": "locale",
+            "in": "query",
+            "description": "Locale to apply",
+            "deprecated": false,
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "operationId": "get/stories"
@@ -49933,7 +50003,7 @@
           {
             "name": "pagination[withCount]",
             "in": "query",
-            "description": "Retun page/pageSize (default: true)",
+            "description": "Return page/pageSize (default: true)",
             "deprecated": false,
             "required": false,
             "schema": {
@@ -50010,6 +50080,16 @@
               "type": "object"
             },
             "style": "deepObject"
+          },
+          {
+            "name": "locale",
+            "in": "query",
+            "description": "Locale to apply",
+            "deprecated": false,
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "operationId": "get/tags"
@@ -50428,7 +50508,7 @@
           {
             "name": "pagination[withCount]",
             "in": "query",
-            "description": "Retun page/pageSize (default: true)",
+            "description": "Return page/pageSize (default: true)",
             "deprecated": false,
             "required": false,
             "schema": {
@@ -50505,6 +50585,16 @@
               "type": "object"
             },
             "style": "deepObject"
+          },
+          {
+            "name": "locale",
+            "in": "query",
+            "description": "Locale to apply",
+            "deprecated": false,
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "operationId": "get/teachers"
@@ -50923,7 +51013,7 @@
           {
             "name": "pagination[withCount]",
             "in": "query",
-            "description": "Retun page/pageSize (default: true)",
+            "description": "Return page/pageSize (default: true)",
             "deprecated": false,
             "required": false,
             "schema": {
@@ -51000,6 +51090,16 @@
               "type": "object"
             },
             "style": "deepObject"
+          },
+          {
+            "name": "locale",
+            "in": "query",
+            "description": "Locale to apply",
+            "deprecated": false,
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "operationId": "get/updates"
@@ -51418,7 +51518,7 @@
           {
             "name": "pagination[withCount]",
             "in": "query",
-            "description": "Retun page/pageSize (default: true)",
+            "description": "Return page/pageSize (default: true)",
             "deprecated": false,
             "required": false,
             "schema": {
@@ -51495,6 +51595,16 @@
               "type": "object"
             },
             "style": "deepObject"
+          },
+          {
+            "name": "locale",
+            "in": "query",
+            "description": "Locale to apply",
+            "deprecated": false,
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "operationId": "get/upload/files"
