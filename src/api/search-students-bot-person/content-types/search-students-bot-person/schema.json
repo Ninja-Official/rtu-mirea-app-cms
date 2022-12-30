@@ -1,0 +1,61 @@
+{
+  "kind": "collectionType",
+  "collectionName": "search_students_bot_people",
+  "info": {
+    "singularName": "search-students-bot-person",
+    "pluralName": "search-students-bot-people",
+    "displayName": "Search Students Bot Person",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "sdoId": {
+      "type": "integer"
+    },
+    "lastName": {
+      "type": "string"
+    },
+    "firstName": {
+      "type": "string"
+    },
+    "middleName": {
+      "type": "string"
+    },
+    "code": {
+      "type": "integer"
+    },
+    "email": {
+      "type": "string"
+    },
+    "group": {
+      "type": "string"
+    },
+    "leaderidId": {
+      "type": "integer"
+    },
+    "phone": {
+      "type": "biginteger"
+    },
+    "personaEmail": {
+      "type": "string"
+    },
+    "birthday": {
+      "type": "date"
+    },
+    "vkId": {
+      "type": "biginteger"
+    },
+    "personalAddress": {
+      "type": "string"
+    },
+    "inn": {
+      "type": "biginteger"
+    },
+    "snils": {
+      "type": "string"
+    }
+  }
+}
