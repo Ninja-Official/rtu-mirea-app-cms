@@ -39,7 +39,7 @@
     "phone": {
       "type": "biginteger"
     },
-    "personaEmail": {
+    "personalEmail": {
       "type": "string"
     },
     "birthday": {
