@@ -74,7 +74,7 @@ module.exports = createCoreController('api::search-students-bot-person.search-st
           (SELECT * FROM search_students_bot_people
             WHERE LOWER("group") ~ LOWER(:query))
       ) AS people`,
-      { query: query }
+      { query }
     ).then((res) => {return parseInt(res.rows[0].count)})
 
     const formattedData = data.map((person) => {
@@ -88,7 +88,7 @@ module.exports = createCoreController('api::search-students-bot-person.search-st
           leaderidId: person.leaderid_id,
           phone: person.phone,
           birthday: person.birthday,
-          vk_id: person.vk_id,
+          vkId: person.vk_id,
           personalEmail: person.personal_email,
           personalAddress: person.personal_address,
           inn: person.inn,
@@ -121,10 +121,10 @@ module.exports = createCoreController('api::search-students-bot-person.search-st
         });
         return filteredItem;
       });
-
       return { data: filteredData, meta };
     }
 
     return { data: formattedData, meta };
-  }
+  },
+
 }));
