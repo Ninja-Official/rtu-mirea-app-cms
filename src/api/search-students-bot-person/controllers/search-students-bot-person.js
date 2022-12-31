@@ -14,7 +14,7 @@ module.exports = createCoreController('api::search-students-bot-person.search-st
     const { query, userId, type } = ctx.request.query;
     const count = 30;
 
-    if (query === undefined) {
+    if (!query) {
       return ctx.badRequest('Query is required');
     }
     if (query.length < 3) {
@@ -28,73 +28,44 @@ module.exports = createCoreController('api::search-students-bot-person.search-st
     }
 
     let meta = { count };
+    const lowerCaseQuery = query.toLowerCase();
+
 
     const data = await strapi.db.connection.context.raw(
       `SELECT limited_people.* FROM (
-        SELECT people.* FROM (
+        SELECT id, sdo_id AS "sdoId", last_name AS "lastName", first_name AS "firstName",
+          middle_name AS "middleName", email, "group",
+          code, leaderid_id AS "leaderidId", phone,
+          birthday, vk_id AS "vkId", personal_address AS "personaAddress",
+          personal_email AS "personalEmail", inn, snils
+          FROM (
           (SELECT * FROM search_students_bot_people
-            WHERE LOWER(CONCAT(last_name, ' ', first_name, ' ', middle_name)) ~ LOWER(:query)
-            OR LOWER(CONCAT(first_name, ' ', middle_name, ' ', last_name)) ~ LOWER(:query))
+            WHERE LOWER(CONCAT(last_name, ' ', first_name, ' ', middle_name)) ~ :query
+            OR LOWER(CONCAT(first_name, ' ', middle_name, ' ', last_name)) ~ :query)
         UNION
           (SELECT * FROM search_students_bot_people
-            WHERE LOWER(CONCAT(last_name, ' ', first_name)) ~ LOWER(:query)
-            OR LOWER(CONCAT(first_name, ' ', last_name)) ~ LOWER(:query))
-        UNION
-          (SELECT * FROM search_students_bot_people
-            WHERE LOWER(last_name) ~ LOWER(:query))
-        UNION
-          (SELECT * FROM search_students_bot_people
-            WHERE LOWER(CONCAT(first_name, ' ', middle_name)) ~ LOWER(:query))
-        UNION
-          (SELECT * FROM search_students_bot_people
-            WHERE LOWER("group") ~ LOWER(:query))
+            WHERE LOWER("group") ~ :query)
         ) AS people
         LIMIT :count) as limited_people
-      ORDER BY last_name, first_name, middle_name, "group"`,
-      { query, count }
-    ).then((res) => {return res.rows})
+      ORDER BY "lastName", "firstName", "middleName", "group"`,
+      { query : lowerCaseQuery, count : count }
+    ).then((res) => {return res.rows.map((row) => {
+      const { id, ...attributes } = row;
+      return { id, attributes };
+    })});
     meta.count = data.length;
 
     meta.total = await strapi.db.connection.context.raw(
       `SELECT COUNT(people.*) FROM (
           (SELECT * FROM search_students_bot_people
-            WHERE LOWER(CONCAT(last_name, ' ', first_name, ' ', middle_name)) ~ LOWER(:query)
-            OR LOWER(CONCAT(first_name, ' ', middle_name, ' ', last_name)) ~ LOWER(:query))
+            WHERE LOWER(CONCAT(last_name, ' ', first_name, ' ', middle_name)) ~ :query
+            OR LOWER(CONCAT(first_name, ' ', middle_name, ' ', last_name)) ~ :query)
         UNION
           (SELECT * FROM search_students_bot_people
-            WHERE LOWER(CONCAT(last_name, ' ', first_name)) ~ LOWER(:query)
-            OR LOWER(CONCAT(first_name, ' ', last_name)) ~ LOWER(:query))
-        UNION
-          (SELECT * FROM search_students_bot_people
-            WHERE LOWER(last_name) ~ LOWER(:query))
-        UNION
-          (SELECT * FROM search_students_bot_people
-            WHERE LOWER(CONCAT(first_name, ' ', middle_name)) ~ LOWER(:query))
-        UNION
-          (SELECT * FROM search_students_bot_people
-            WHERE LOWER("group") ~ LOWER(:query))
+            WHERE LOWER("group") ~ :query)
       ) AS people`,
-      { query }
+      { query : lowerCaseQuery }
     ).then((res) => {return parseInt(res.rows[0].count)})
-
-    const formattedData = data.map((person) => {
-      return { id: person.id,
-        attributes: {
-          sdoId: person.sdo_id,
-          lastName: person.last_name,
-          firstName: person.first_name,
-          middleName: person.middle_name,
-          group: person.group,
-          leaderidId: person.leaderid_id,
-          phone: person.phone,
-          birthday: person.birthday,
-          vkId: person.vk_id,
-          personalEmail: person.personal_email,
-          personalAddress: person.personal_address,
-          inn: person.inn,
-          snils: person.snils,
-        }}
-    });
 
     const permission = await strapi.db.query('api::search-students-bot-extended-access-permission.search-students-bot-extended-access-permission')
       .findOne(
@@ -104,17 +75,17 @@ module.exports = createCoreController('api::search-students-bot-person.search-st
         },
       )
 
-    if (permission === null ||
-        (permission.requestExtendedAccess === false && type === typeEnum.request) ||
-        (permission.queryExtendedAccess === false && type === typeEnum.query)
+    if (!permission ||
+        (!permission.requestExtendedAccess && type === typeEnum.request) ||
+        (!permission.queryExtendedAccess && type === typeEnum.query)
     ) {
       const allowedFields = [
-        'sdoId', 'lastName', 'firstName', 'middleName', 'code',
+        'lastName', 'firstName', 'middleName', 'code',
         'group', 'birthday', 'vkId'
       ];
 
       // filter each item in data array by allowedFields
-      const filteredData = formattedData.map(item => {
+      const filteredData = data.map(item => {
         const filteredItem = { id : item.id, attributes: {} };
         allowedFields.forEach(field => {
           filteredItem.attributes[field] = item.attributes[field];
@@ -124,7 +95,7 @@ module.exports = createCoreController('api::search-students-bot-person.search-st
       return { data: filteredData, meta };
     }
 
-    return { data: formattedData, meta };
+    return { data, meta };
   },
 
 }));
