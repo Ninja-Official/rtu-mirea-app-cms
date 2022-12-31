@@ -24,9 +24,6 @@
     "middleName": {
       "type": "string"
     },
-    "code": {
-      "type": "integer"
-    },
     "email": {
       "type": "string"
     },
@@ -55,6 +52,9 @@
       "type": "biginteger"
     },
     "snils": {
+      "type": "string"
+    },
+    "code": {
       "type": "string"
     }
   }

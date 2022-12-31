@@ -4,8 +4,6 @@
  * search-students-bot-person controller
  */
 
-const { sanitizeEntity } = require('strapi-utils');
-
 const { createCoreController } = require('@strapi/strapi').factories;
 
 const typeEnum = Object.freeze({ request: 'request', query: 'query' });

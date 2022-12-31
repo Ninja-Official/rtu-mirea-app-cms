@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2022-12-31T10:15:45.960Z"
+    "x-generation-date": "2022-12-31T11:47:29.982Z"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -17411,9 +17411,6 @@
               "middleName": {
                 "type": "string"
               },
-              "code": {
-                "type": "integer"
-              },
               "email": {
                 "type": "string"
               },
@@ -17449,6 +17446,9 @@
                 "example": "123456789"
               },
               "snils": {
+                "type": "string"
+              },
+              "code": {
                 "type": "string"
               }
             }
@@ -17476,9 +17476,6 @@
               "middleName": {
                 "type": "string"
               },
-              "code": {
-                "type": "integer"
-              },
               "email": {
                 "type": "string"
               },
@@ -17514,6 +17511,9 @@
                 "example": "123456789"
               },
               "snils": {
+                "type": "string"
+              },
+              "code": {
                 "type": "string"
               },
               "createdAt": {
@@ -17838,9 +17838,6 @@
               "middleName": {
                 "type": "string"
               },
-              "code": {
-                "type": "integer"
-              },
               "email": {
                 "type": "string"
               },
@@ -17876,6 +17873,9 @@
                 "example": "123456789"
               },
               "snils": {
+                "type": "string"
+              },
+              "code": {
                 "type": "string"
               },
               "createdAt": {
@@ -18233,9 +18233,6 @@
               "middleName": {
                 "type": "string"
               },
-              "code": {
-                "type": "integer"
-              },
               "email": {
                 "type": "string"
               },
@@ -18271,6 +18268,9 @@
                 "example": "123456789"
               },
               "snils": {
+                "type": "string"
+              },
+              "code": {
                 "type": "string"
               },
               "createdAt": {
@@ -18595,9 +18595,6 @@
               "middleName": {
                 "type": "string"
               },
-              "code": {
-                "type": "integer"
-              },
               "email": {
                 "type": "string"
               },
@@ -18633,6 +18630,9 @@
                 "example": "123456789"
               },
               "snils": {
+                "type": "string"
+              },
+              "code": {
                 "type": "string"
               },
               "createdAt": {
