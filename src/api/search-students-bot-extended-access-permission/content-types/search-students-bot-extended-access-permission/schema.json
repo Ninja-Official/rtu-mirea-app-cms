@@ -1,0 +1,32 @@
+{
+  "kind": "collectionType",
+  "collectionName": "search_students_bot_extended_access_permissions",
+  "info": {
+    "singularName": "search-students-bot-extended-access-permission",
+    "pluralName": "search-students-bot-extended-access-permissions",
+    "displayName": "Search Students Bot Extended Access Permission"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "telegramUserId": {
+      "type": "biginteger",
+      "required": true
+    },
+    "requestExtendedAccess": {
+      "type": "boolean",
+      "required": true
+    },
+    "queryExtendedAccess": {
+      "type": "boolean",
+      "required": true
+    },
+    "Description": {
+      "type": "string",
+      "required": true,
+      "private": true
+    }
+  }
+}
