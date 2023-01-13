@@ -81,7 +81,7 @@ module.exports = createCoreController('api::search-students-bot-person.search-st
     ) {
       const allowedFields = [
         'lastName', 'firstName', 'middleName', 'code',
-        'group', 'birthday', 'vkId'
+        'group', 'birthday', 'vkId', 'email'
       ];
 
       // filter each item in data array by allowedFields
