@@ -61,7 +61,8 @@ module.exports = createCoreController('api::search-students-bot-person.search-st
       `SELECT COUNT(people.*) FROM (
           (SELECT * FROM search_students_bot_people
             WHERE LOWER(CONCAT(last_name, ' ', first_name, ' ', middle_name)) ~ :query
-            OR LOWER(CONCAT(first_name, ' ', middle_name, ' ', last_name)) ~ :query)
+            OR LOWER(CONCAT(first_name, ' ', middle_name, ' ', last_name)) ~ :query
+            OR LOWER(CONCAT(first_name, ' ', last_name)) ~ :query)
         UNION
           (SELECT * FROM search_students_bot_people
             WHERE LOWER("group") ~ :query)
