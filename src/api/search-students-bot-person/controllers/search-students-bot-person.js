@@ -36,12 +36,14 @@ module.exports = createCoreController('api::search-students-bot-person.search-st
         SELECT id, sdo_id AS "sdoId", last_name AS "lastName", first_name AS "firstName",
           middle_name AS "middleName", email, "group",
           code, leaderid_id AS "leaderidId", phone,
-          birthday, vk_id AS "vkId", personal_address AS "personaAddress",
-          personal_email AS "personalEmail", inn, snils
+          birthday, vk_id AS "vkId", personal_address AS "personalAddress",
+          personal_email AS "personalEmail", inn, snils,
+          job_title AS "jobTitle"
           FROM (
           (SELECT * FROM search_students_bot_people
             WHERE LOWER(CONCAT(last_name, ' ', first_name, ' ', middle_name)) ~ :query
-            OR LOWER(CONCAT(first_name, ' ', middle_name, ' ', last_name)) ~ :query)
+              OR LOWER(CONCAT(first_name, ' ', middle_name, ' ', last_name)) ~ :query
+              OR LOWER(CONCAT(first_name, ' ', last_name)) ~ :query)
         UNION
           (SELECT * FROM search_students_bot_people
             WHERE LOWER("group") ~ :query)
@@ -81,7 +83,7 @@ module.exports = createCoreController('api::search-students-bot-person.search-st
     ) {
       const allowedFields = [
         'lastName', 'firstName', 'middleName', 'code',
-        'group', 'birthday', 'vkId', 'email'
+        'group', 'birthday', 'vkId', 'email', 'jobTitle'
       ];
 
       // filter each item in data array by allowedFields
