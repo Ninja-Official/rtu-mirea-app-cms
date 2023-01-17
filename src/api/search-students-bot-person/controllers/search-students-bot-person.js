@@ -41,12 +41,13 @@ module.exports = createCoreController('api::search-students-bot-person.search-st
           job_title AS "jobTitle"
           FROM (
           (SELECT * FROM search_students_bot_people
-            WHERE LOWER(CONCAT(last_name, ' ', first_name, ' ', middle_name)) ~ :query
+            WHERE (LOWER(CONCAT(last_name, ' ', first_name, ' ', middle_name)) ~ :query
               OR LOWER(CONCAT(first_name, ' ', middle_name, ' ', last_name)) ~ :query
               OR LOWER(CONCAT(first_name, ' ', last_name)) ~ :query)
+              AND (published_at IS NOT NULL))
         UNION
           (SELECT * FROM search_students_bot_people
-            WHERE LOWER("group") ~ :query)
+            WHERE LOWER("group") ~ :query AND (published_at IS NOT NULL))
         ) AS people
         LIMIT :count) as limited_people
       ORDER BY "lastName", "firstName", "middleName", "group"`,
@@ -60,12 +61,14 @@ module.exports = createCoreController('api::search-students-bot-person.search-st
     meta.total = await strapi.db.connection.context.raw(
       `SELECT COUNT(people.*) FROM (
           (SELECT * FROM search_students_bot_people
-            WHERE LOWER(CONCAT(last_name, ' ', first_name, ' ', middle_name)) ~ :query
+            WHERE (
+            LOWER(CONCAT(last_name, ' ', first_name, ' ', middle_name)) ~ :query
             OR LOWER(CONCAT(first_name, ' ', middle_name, ' ', last_name)) ~ :query
             OR LOWER(CONCAT(first_name, ' ', last_name)) ~ :query)
+            AND (published_at IS NOT NULL))
         UNION
           (SELECT * FROM search_students_bot_people
-            WHERE LOWER("group") ~ :query)
+            WHERE LOWER("group") ~ :query AND (published_at IS NOT NULL))
       ) AS people`,
       { query : lowerCaseQuery }
     ).then((res) => {return parseInt(res.rows[0].count)})
@@ -74,7 +77,7 @@ module.exports = createCoreController('api::search-students-bot-person.search-st
       .findOne(
         {
           select : ['id', 'requestExtendedAccess', 'queryExtendedAccess'],
-          where: { telegramUserId: userId }
+          where: { $and: [{ telegramUserId: userId }, { published_at : { $not : null } }] }
         },
       )
 
