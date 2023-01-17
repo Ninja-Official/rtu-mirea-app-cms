@@ -101,7 +101,7 @@ module.exports = createCoreController('api::search-students-bot-person.search-st
     return { data, meta };
   },
 
-  async getFullName(ctx) {
+  async getFullTeacherName(ctx) {
     const { rawNames } = ctx.request.query;
 
     if (!rawNames) {

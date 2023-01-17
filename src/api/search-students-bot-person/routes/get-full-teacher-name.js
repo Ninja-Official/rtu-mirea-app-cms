@@ -5,7 +5,7 @@ module.exports = {
     {
       method: 'GET',
       path: '/get-full-teacher-name',
-      handler: 'search-students-bot-person.getFullName',
+      handler: 'search-students-bot-person.getFullTeacherName',
       config: {
         policies: [],
         middlewares: [],
