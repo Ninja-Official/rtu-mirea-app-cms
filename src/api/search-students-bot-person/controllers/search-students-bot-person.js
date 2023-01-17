@@ -112,7 +112,7 @@ module.exports = createCoreController('api::search-students-bot-person.search-st
     let result = [];
     for (const name of names) {
       const data = await strapi.db.connection.context.raw(
-        `SELECT last_name AS "lastName", first_name AS "firstName", middle_name AS "middleName"
+        `SELECT DISTINCT ON ("lastName", "firstName", "middleName") last_name AS "lastName", first_name AS "firstName", middle_name AS "middleName"
           FROM search_students_bot_people
           WHERE email LIKE '%@mirea.ru'
              AND CONCAT(last_name, ' ', SUBSTR(first_name, 1, 1), '.', SUBSTR(middle_name, 1, 1), '.') = :name
