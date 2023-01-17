@@ -116,6 +116,7 @@ module.exports = createCoreController('api::search-students-bot-person.search-st
           FROM search_students_bot_people
           WHERE email LIKE '%@mirea.ru'
              AND CONCAT(last_name, ' ', SUBSTR(first_name, 1, 1), '.', SUBSTR(middle_name, 1, 1), '.') = :name
+             AND published_at IS NOT NULL
           LIMIT 10`,
         { name }
       ).then((res) => {
