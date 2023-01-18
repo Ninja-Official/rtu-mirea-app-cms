@@ -56,6 +56,9 @@
     },
     "code": {
       "type": "string"
+    },
+    "jobTitle": {
+      "type": "string"
     }
   }
 }
