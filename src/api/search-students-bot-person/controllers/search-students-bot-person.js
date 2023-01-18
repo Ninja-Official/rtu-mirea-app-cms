@@ -104,4 +104,43 @@ module.exports = createCoreController('api::search-students-bot-person.search-st
     return { data, meta };
   },
 
+  async getFullTeacherName(ctx) {
+    const { rawNames } = ctx.request.query;
+
+    if (!rawNames) {
+      return ctx.badRequest('Raw names are required');
+    }
+    const names = matchAll('[ЁёА-я]+\\ [ЁёА-я]\\.[ЁёА-я]\\.', rawNames).slice(0, 5);
+
+    let result = [];
+    for (const name of names) {
+      const data = await strapi.db.connection.context.raw(
+        `SELECT DISTINCT ON ("lastName", "firstName", "middleName") last_name AS "lastName", first_name AS "firstName", middle_name AS "middleName"
+          FROM search_students_bot_people
+          WHERE email LIKE '%@mirea.ru'
+             AND CONCAT(last_name, ' ', SUBSTR(first_name, 1, 1), '.', SUBSTR(middle_name, 1, 1), '.') = :name
+             AND published_at IS NOT NULL
+          LIMIT 10`,
+        { name }
+      ).then((res) => {
+        return res.rows;
+      });
+      result.push({ rawName: name, possibleFullNames: data });
+    }
+    return result;
+  },
+
 }));
+
+function matchAll(pattern,haystack){
+  var regex = new RegExp(pattern,"g")
+  var matches = [];
+
+  var match_result = haystack.match(regex);
+
+  for (let index in match_result){
+    var item = match_result[index];
+    matches[index] = item.match(regex)[0];
+  }
+  return matches;
+}
