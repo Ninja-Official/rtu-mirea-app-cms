@@ -13,7 +13,6 @@ module.exports = createCoreController(
   ({ strapi }) => ({
     async find(ctx) {
       const { query, userId, type } = ctx.request.query;
-      const count = 30;
 
       if (!query) {
         return ctx.badRequest("Query is required");
@@ -28,31 +27,26 @@ module.exports = createCoreController(
         return ctx.badRequest("Type is required");
       }
 
-      let meta = { count };
-      const lowerCaseQuery = query.toLowerCase();
 
       const data = await strapi.db.connection.context
         .raw(
-          `SELECT limited_people.* FROM (
-        SELECT id, sdo_id AS "sdoId", last_name AS "lastName", first_name AS "firstName",
-          middle_name AS "middleName", email, "group",
-          code, leaderid_id AS "leaderidId", phone,
-          birthday, vk_id AS "vkId", personal_address AS "personalAddress",
-          personal_email AS "personalEmail", inn, snils,
-          job_title AS "jobTitle"
-          FROM (
-          (SELECT * FROM search_students_bot_people
-            WHERE (LOWER(CONCAT(last_name, ' ', first_name, ' ', middle_name)) ~ :query
-              OR LOWER(CONCAT(first_name, ' ', middle_name, ' ', last_name)) ~ :query
-              OR LOWER(CONCAT(first_name, ' ', last_name)) ~ :query)
-              AND (published_at IS NOT NULL))
-        UNION
-          (SELECT * FROM search_students_bot_people
-            WHERE LOWER("group") ~ :query AND (published_at IS NOT NULL))
-        ) AS people
-        LIMIT :count) as limited_people
-      ORDER BY "lastName", "firstName", "middleName", "group"`,
-          { query: lowerCaseQuery, count: count }
+          `
+SELECT id, sdo_id AS "sdoId", last_name AS "lastName", first_name AS "firstName",
+  middle_name AS "middleName", email, "group",
+  code, leaderid_id AS "leaderidId", phone,
+  birthday, vk_id AS "vkId", personal_address AS "personalAddress",
+  personal_email AS "personalEmail", inn, snils,
+  job_title AS "jobTitle"
+FROM search_students_bot_people
+WHERE (CONCAT(last_name, ' ', first_name, ' ', middle_name) ~* :query
+  OR CONCAT(first_name, ' ', middle_name, ' ', last_name) ~* :query
+  OR CONCAT(first_name, ' ', last_name) ~* :query
+  OR "group" ~* :query)
+  AND published_at IS NOT NULL
+ORDER BY "lastName", "firstName", "middleName", "group"
+LIMIT :limit
+`,
+          { query, limit }
         )
         .then((res) => {
           return res.rows.map((row) => {
@@ -64,36 +58,21 @@ module.exports = createCoreController(
 
       meta.total = await strapi.db.connection.context
         .raw(
-          `SELECT COUNT(people.*) FROM (
-          (SELECT * FROM search_students_bot_people
-            WHERE (
-            LOWER(CONCAT(last_name, ' ', first_name, ' ', middle_name)) ~ :query
-            OR LOWER(CONCAT(first_name, ' ', middle_name, ' ', last_name)) ~ :query
-            OR LOWER(CONCAT(first_name, ' ', last_name)) ~ :query)
-            AND (published_at IS NOT NULL))
-        UNION
-          (SELECT * FROM search_students_bot_people
-            WHERE LOWER("group") ~ :query AND (published_at IS NOT NULL))
-      ) AS people`,
-          { query: lowerCaseQuery }
+          `
+SELECT COUNT(*) FROM search_students_bot_people
+WHERE (CONCAT(last_name, ' ', first_name, ' ', middle_name) ~* :query
+  OR CONCAT(first_name, ' ', middle_name, ' ', last_name) ~* :query
+  OR CONCAT(first_name, ' ', last_name) ~* :query
+  OR "group" ~* :query)
+  AND published_at IS NOT NULL`,
+          { query }
         )
         .then((res) => {
           return parseInt(res.rows[0].count);
         });
 
-      const permission = await strapi.db
-        .query(
-          "api::search-students-bot-extended-access-permission.search-students-bot-extended-access-permission"
-        )
-        .findOne({
-          select: ["id", "requestExtendedAccess", "queryExtendedAccess"],
-          where: {
-            $and: [
-              { telegramUserId: userId },
-              { published_at: { $not: null } },
-            ],
-          },
-        });
+      const permission = await getPermission(userId);
+
 
       if (
         !permission ||
@@ -141,12 +120,14 @@ module.exports = createCoreController(
       for (const name of names) {
         const data = await strapi.db.connection.context
           .raw(
-            `SELECT DISTINCT ON ("lastName", "firstName", "middleName") last_name AS "lastName", first_name AS "firstName", middle_name AS "middleName"
-          FROM search_students_bot_people
-          WHERE email LIKE '%@mirea.ru'
-             AND CONCAT(last_name, ' ', SUBSTR(first_name, 1, 1), '.', SUBSTR(middle_name, 1, 1), '.') = :name
-             AND published_at IS NOT NULL
-          LIMIT 10`,
+            `
+SELECT DISTINCT ON ("lastName", "firstName", "middleName")
+  last_name AS "lastName", first_name AS "firstName", middle_name AS "middleName"
+FROM search_students_bot_people
+WHERE email LIKE '%@mirea.ru'
+  AND CONCAT(last_name, ' ', SUBSTR(first_name, 1, 1), '.', SUBSTR(middle_name, 1, 1), '.') = :name
+  AND published_at IS NOT NULL
+ LIMIT 10`,
             { name }
           )
           .then((res) => {
@@ -170,4 +151,17 @@ function matchAll(pattern, haystack) {
     matches[index] = item.match(regex)[0];
   }
   return matches;
+}
+
+async function getPermission(userId) {
+  return await strapi.db
+    .query(
+      "api::search-students-bot-extended-access-permission.search-students-bot-extended-access-permission"
+    )
+    .findOne({
+      select: ["id", "requestExtendedAccess", "queryExtendedAccess"],
+      where: {
+        $and: [{ telegramUserId: userId }, { published_at: { $not: null } }],
+      },
+    });
 }
