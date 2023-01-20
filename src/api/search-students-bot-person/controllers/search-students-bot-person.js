@@ -27,17 +27,21 @@ module.exports = createCoreController(
         return ctx.badRequest("Type is required");
       }
 
+      // Check if user is blocked
+      const block = await getBlock(userId);
+      if (block) {
+        return { data: [], meta: { count: 0, total: 0 } };
+      }
+
       let limit = 0;
       if (type === typeEnum.request) {
-        if (query.match("^[ЁёA-Яa-я]{4}-[\\d]{2}-[\\d]{2}$")) {
+        if (query.match("[ЁёA-Яa-я]{4}-[\\d]{2}-[\\d]{2}")) {
           limit = 40;
         } else {
           limit = 15;
         }
       } else if (type === typeEnum.query) {
         limit = 50;
-      } else {
-        limit = 0;
       }
 
       let meta = {};
@@ -86,7 +90,6 @@ WHERE (CONCAT(last_name, ' ', first_name, ' ', middle_name) ~* :query
         });
 
       const permission = await getPermission(userId);
-
 
       if (
         !permission ||
@@ -174,6 +177,19 @@ async function getPermission(userId) {
     )
     .findOne({
       select: ["id", "requestExtendedAccess", "queryExtendedAccess"],
+      where: {
+        $and: [{ telegramUserId: userId }, { published_at: { $not: null } }],
+      },
+    });
+}
+
+async function getBlock(userId) {
+  return await strapi.db
+    .query(
+      "api::search-students-bot-access-block.search-students-bot-access-block"
+    )
+    .findOne({
+      select: ["id"],
       where: {
         $and: [{ telegramUserId: userId }, { published_at: { $not: null } }],
       },
