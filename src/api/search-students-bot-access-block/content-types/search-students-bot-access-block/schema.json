@@ -1,0 +1,26 @@
+{
+  "kind": "collectionType",
+  "collectionName": "search_students_bot_access_blocks",
+  "info": {
+    "singularName": "search-students-bot-access-block",
+    "pluralName": "search-students-bot-access-blocks",
+    "displayName": "Search Students Bot Access Block",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "telegramUserId": {
+      "type": "biginteger",
+      "required": true,
+      "unique": true
+    },
+    "description": {
+      "type": "string",
+      "required": true,
+      "private": true
+    }
+  }
+}
