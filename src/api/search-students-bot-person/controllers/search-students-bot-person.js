@@ -27,6 +27,20 @@ module.exports = createCoreController(
         return ctx.badRequest("Type is required");
       }
 
+      let limit = 0;
+      if (type === typeEnum.request) {
+        if (query.match("^[ЁёA-Яa-я]{4}-[\\d]{2}-[\\d]{2}$")) {
+          limit = 40;
+        } else {
+          limit = 15;
+        }
+      } else if (type === typeEnum.query) {
+        limit = 50;
+      } else {
+        limit = 0;
+      }
+
+      let meta = {};
 
       const data = await strapi.db.connection.context
         .raw(
