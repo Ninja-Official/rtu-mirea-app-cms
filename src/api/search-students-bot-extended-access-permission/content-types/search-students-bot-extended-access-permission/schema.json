@@ -4,7 +4,8 @@
   "info": {
     "singularName": "search-students-bot-extended-access-permission",
     "pluralName": "search-students-bot-extended-access-permissions",
-    "displayName": "Search Students Bot Extended Access Permission"
+    "displayName": "Search Students Bot Extended Access Permission",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -13,7 +14,8 @@
   "attributes": {
     "telegramUserId": {
       "type": "biginteger",
-      "required": true
+      "required": true,
+      "unique": true
     },
     "requestExtendedAccess": {
       "type": "boolean",

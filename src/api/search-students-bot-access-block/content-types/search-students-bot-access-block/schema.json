@@ -4,7 +4,8 @@
   "info": {
     "singularName": "search-students-bot-access-block",
     "pluralName": "search-students-bot-access-blocks",
-    "displayName": "Search Students Bot Access Block"
+    "displayName": "Search Students Bot Access Block",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -13,7 +14,8 @@
   "attributes": {
     "telegramUserId": {
       "type": "biginteger",
-      "required": true
+      "required": true,
+      "unique": true
     },
     "description": {
       "type": "string",
