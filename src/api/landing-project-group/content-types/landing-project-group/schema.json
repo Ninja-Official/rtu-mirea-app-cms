@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "landing_project_groups",
+  "info": {
+    "singularName": "landing-project-group",
+    "pluralName": "landing-project-groups",
+    "displayName": "Landing Project Group",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "projectCards": {
+      "type": "component",
+      "repeatable": true,
+      "component": "landing.project-card"
+    }
+  }
+}
