@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2023-01-26T11:19:05.513Z"
+    "x-generation-date": "2023-01-26T12:50:36.518Z"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -13495,7 +13495,8 @@
         "properties": {
           "data": {
             "required": [
-              "title"
+              "title",
+              "order"
             ],
             "type": "object",
             "properties": {
@@ -13507,6 +13508,9 @@
                 "items": {
                   "$ref": "#/components/schemas/LandingProjectCardComponent"
                 }
+              },
+              "order": {
+                "type": "integer"
               }
             }
           }
@@ -13529,6 +13533,9 @@
                 "items": {
                   "$ref": "#/components/schemas/LandingProjectCardComponent"
                 }
+              },
+              "order": {
+                "type": "integer"
               },
               "createdAt": {
                 "type": "string",
@@ -13848,6 +13855,9 @@
                 "items": {
                   "$ref": "#/components/schemas/LandingProjectCardComponent"
                 }
+              },
+              "order": {
+                "type": "integer"
               },
               "createdAt": {
                 "type": "string",
@@ -14201,6 +14211,9 @@
                   "$ref": "#/components/schemas/LandingProjectCardComponent"
                 }
               },
+              "order": {
+                "type": "integer"
+              },
               "createdAt": {
                 "type": "string",
                 "format": "date-time"
@@ -14519,6 +14532,9 @@
                 "items": {
                   "$ref": "#/components/schemas/LandingProjectCardComponent"
                 }
+              },
+              "order": {
+                "type": "integer"
               },
               "createdAt": {
                 "type": "string",
@@ -15486,6 +15502,9 @@
                 },
                 "className": {
                   "type": "string"
+                },
+                "order": {
+                  "type": "integer"
                 }
               }
             }
@@ -16124,9 +16143,15 @@
                       }
                     }
                   }
+                },
+                "order": {
+                  "type": "integer"
                 }
               }
             }
+          },
+          "order": {
+            "type": "integer"
           }
         }
       },

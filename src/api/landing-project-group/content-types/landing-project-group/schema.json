@@ -20,6 +20,11 @@
       "type": "component",
       "repeatable": true,
       "component": "landing.project-card"
+    },
+    "order": {
+      "type": "integer",
+      "unique": true,
+      "required": true
     }
   }
 }
