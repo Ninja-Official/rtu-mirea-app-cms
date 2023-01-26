@@ -36,6 +36,11 @@
       "type": "component",
       "repeatable": true,
       "component": "landing.badge"
+    },
+    "authors": {
+      "type": "component",
+      "repeatable": true,
+      "component": "landing.author"
     }
   }
 }

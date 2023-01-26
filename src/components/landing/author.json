@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_landing_authors",
+  "info": {
+    "displayName": "Author",
+    "icon": "id-badge",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "githubLink": {
+      "type": "string",
+      "required": true
+    },
+    "image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": false
+    }
+  }
+}
