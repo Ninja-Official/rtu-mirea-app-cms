@@ -1,0 +1,51 @@
+{
+  "collectionName": "components_landing_project_cards",
+  "info": {
+    "displayName": "Project Card",
+    "icon": "receipt",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "string",
+      "required": true
+    },
+    "link": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "appStoreLink": {
+      "type": "string"
+    },
+    "googlePlayLink": {
+      "type": "string"
+    },
+    "badges": {
+      "type": "component",
+      "repeatable": true,
+      "component": "landing.badge"
+    },
+    "authors": {
+      "type": "component",
+      "repeatable": true,
+      "component": "landing.author"
+    },
+    "order": {
+      "type": "integer",
+      "required": true,
+      "unique": true
+    }
+  }
+}

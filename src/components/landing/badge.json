@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_landing_badges",
+  "info": {
+    "displayName": "Badge",
+    "icon": "id-badge",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "text": {
+      "type": "string",
+      "required": true
+    },
+    "className": {
+      "type": "string"
+    },
+    "order": {
+      "type": "integer",
+      "required": true,
+      "unique": true
+    }
+  }
+}
