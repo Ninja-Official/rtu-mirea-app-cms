@@ -15,9 +15,6 @@
       "type": "string",
       "required": true
     },
-    "link": {
-      "type": "string"
-    },
     "icon": {
       "type": "media",
       "multiple": false,
@@ -25,12 +22,6 @@
       "allowedTypes": [
         "images"
       ]
-    },
-    "appStoreLink": {
-      "type": "string"
-    },
-    "googlePlayLink": {
-      "type": "string"
     },
     "badges": {
       "type": "component",
@@ -42,10 +33,10 @@
       "repeatable": true,
       "component": "landing.author"
     },
-    "order": {
-      "type": "integer",
-      "required": true,
-      "unique": false
+    "links": {
+      "type": "component",
+      "repeatable": true,
+      "component": "landing.link"
     }
   }
 }

@@ -11,13 +11,16 @@
       "type": "string",
       "required": true
     },
-    "className": {
-      "type": "string"
-    },
-    "order": {
-      "type": "integer",
-      "required": true,
-      "unique": false
+    "color": {
+      "type": "enumeration",
+      "enum": [
+        "primary",
+        "secondary",
+        "accent",
+        "neutral"
+      ],
+      "default": "primary",
+      "required": true
     }
   }
 }
