@@ -21,11 +21,6 @@
       "allowedTypes": [
         "images"
       ]
-    },
-    "order": {
-      "type": "integer",
-      "required": true,
-      "unique": false
     }
   }
 }
