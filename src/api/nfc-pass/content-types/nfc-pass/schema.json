@@ -4,10 +4,11 @@
   "info": {
     "singularName": "nfc-pass",
     "pluralName": "nfc-passes",
-    "displayName": "NfcPass"
+    "displayName": "NfcPass",
+    "description": ""
   },
   "options": {
-    "draftAndPublish": true
+    "draftAndPublish": false
   },
   "pluginOptions": {},
   "attributes": {
@@ -23,6 +24,10 @@
     "connected": {
       "type": "boolean",
       "default": false,
+      "required": true
+    },
+    "deviceName": {
+      "type": "string",
       "required": true
     }
   }

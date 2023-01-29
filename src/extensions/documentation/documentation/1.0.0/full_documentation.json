@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2023-01-29T12:48:15.324Z"
+    "x-generation-date": "2023-01-29T19:05:14.615Z"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -16182,7 +16182,8 @@
             "required": [
               "deviceId",
               "studentId",
-              "connected"
+              "connected",
+              "deviceName"
             ],
             "type": "object",
             "properties": {
@@ -16194,6 +16195,9 @@
               },
               "connected": {
                 "type": "boolean"
+              },
+              "deviceName": {
+                "type": "string"
               }
             }
           }
@@ -16217,15 +16221,14 @@
               "connected": {
                 "type": "boolean"
               },
+              "deviceName": {
+                "type": "string"
+              },
               "createdAt": {
                 "type": "string",
                 "format": "date-time"
               },
               "updatedAt": {
-                "type": "string",
-                "format": "date-time"
-              },
-              "publishedAt": {
                 "type": "string",
                 "format": "date-time"
               },
@@ -16536,15 +16539,14 @@
               "connected": {
                 "type": "boolean"
               },
+              "deviceName": {
+                "type": "string"
+              },
               "createdAt": {
                 "type": "string",
                 "format": "date-time"
               },
               "updatedAt": {
-                "type": "string",
-                "format": "date-time"
-              },
-              "publishedAt": {
                 "type": "string",
                 "format": "date-time"
               },
@@ -16888,15 +16890,14 @@
               "connected": {
                 "type": "boolean"
               },
+              "deviceName": {
+                "type": "string"
+              },
               "createdAt": {
                 "type": "string",
                 "format": "date-time"
               },
               "updatedAt": {
-                "type": "string",
-                "format": "date-time"
-              },
-              "publishedAt": {
                 "type": "string",
                 "format": "date-time"
               },
@@ -17207,15 +17208,14 @@
               "connected": {
                 "type": "boolean"
               },
+              "deviceName": {
+                "type": "string"
+              },
               "createdAt": {
                 "type": "string",
                 "format": "date-time"
               },
               "updatedAt": {
-                "type": "string",
-                "format": "date-time"
-              },
-              "publishedAt": {
                 "type": "string",
                 "format": "date-time"
               },
