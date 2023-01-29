@@ -1,0 +1,29 @@
+{
+  "kind": "collectionType",
+  "collectionName": "nfc_passes",
+  "info": {
+    "singularName": "nfc-pass",
+    "pluralName": "nfc-passes",
+    "displayName": "NfcPass"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "deviceId": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "studentId": {
+      "type": "string",
+      "required": true
+    },
+    "connected": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    }
+  }
+}
