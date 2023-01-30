@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2023-01-29T19:05:14.615Z"
+    "x-generation-date": "2023-01-30T09:05:40.524Z"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -16183,7 +16183,8 @@
               "deviceId",
               "studentId",
               "connected",
-              "deviceName"
+              "deviceName",
+              "code"
             ],
             "type": "object",
             "properties": {
@@ -16197,6 +16198,9 @@
                 "type": "boolean"
               },
               "deviceName": {
+                "type": "string"
+              },
+              "code": {
                 "type": "string"
               }
             }
@@ -16222,6 +16226,9 @@
                 "type": "boolean"
               },
               "deviceName": {
+                "type": "string"
+              },
+              "code": {
                 "type": "string"
               },
               "createdAt": {
@@ -16540,6 +16547,9 @@
                 "type": "boolean"
               },
               "deviceName": {
+                "type": "string"
+              },
+              "code": {
                 "type": "string"
               },
               "createdAt": {
@@ -16893,6 +16903,9 @@
               "deviceName": {
                 "type": "string"
               },
+              "code": {
+                "type": "string"
+              },
               "createdAt": {
                 "type": "string",
                 "format": "date-time"
@@ -17209,6 +17222,9 @@
                 "type": "boolean"
               },
               "deviceName": {
+                "type": "string"
+              },
+              "code": {
                 "type": "string"
               },
               "createdAt": {

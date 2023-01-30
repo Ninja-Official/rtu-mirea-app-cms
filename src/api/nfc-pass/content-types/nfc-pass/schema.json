@@ -29,6 +29,11 @@
     "deviceName": {
       "type": "string",
       "required": true
+    },
+    "code": {
+      "type": "string",
+      "required": true,
+      "unique": true
     }
   }
 }
