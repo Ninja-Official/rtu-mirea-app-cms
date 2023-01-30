@@ -10,6 +10,12 @@ module.exports = ({ env }) => ({
   "encryptable-field": {
     enabled: true,
   },
+  scheduler: {
+    enabled: true,
+    config: {
+      model: "scheduler",
+    },
+  },
   upload: {
     config: {
       provider: "aws-s3-cdn",
