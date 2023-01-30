@@ -7,6 +7,9 @@ module.exports = ({ env }) => ({
   "import-export-entries": {
     enabled: true,
   },
+  "encryptable-field": {
+    enabled: true,
+  },
   upload: {
     config: {
       provider: "aws-s3-cdn",
