@@ -15,8 +15,8 @@ module.exports = createCoreService(
         {
           fields: ["isImportant", "title", "text", "date"],
           populate: { tags: true, images: true },
+          ...args[0],
         },
-        ...args,
       ];
 
       const { results, pagination } = await super.find(...newArgs);
