@@ -15,7 +15,7 @@
     "deviceId": {
       "type": "string",
       "required": true,
-      "unique": true
+      "unique": false
     },
     "studentId": {
       "type": "string",
