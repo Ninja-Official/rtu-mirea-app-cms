@@ -2,7 +2,7 @@ export default {
   config: {
     locales: [
       // 'ar',
-      'fr',
+      //'fr',
       // 'cs',
       // 'de',
       // 'dk',
@@ -18,7 +18,7 @@ export default {
       // 'pl',
       // 'pt-BR',
       // 'pt',
-      // 'ru',
+      'ru',
       // 'sk',
       // 'sv',
       // 'th',

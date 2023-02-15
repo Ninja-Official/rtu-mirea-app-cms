@@ -1,0 +1,51 @@
+name: Build and Deploy
+
+on:
+  push:
+    branches:
+      - main
+
+env:
+  JOB_STARTED_AT: ${{ github.event.created_at }}
+  CR_REGISTRY: ${{ secrets.CR_REGISTRY }}
+  CR_IMAGE_STRAPI: ${{ secrets.CR_IMAGE_STRAPI }}
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          submodules: recursive
+      - name: Login to Registry
+        uses: yc-actions/yc-cr-login@v1
+        with:
+          yc-sa-json-credentials: ${{ secrets.YC_SA_JSON_CREDENTIALS }}
+      - name: Build and Push Image 
+        run: |
+          docker build \
+          --pull \
+          --cache-from cr.yandex/${{ env.CR_REGISTRY }}/${{ env.CR_IMAGE_STRAPI }}:latest \
+          --label "org.image.title=${{ github.repository }}" \
+          --label "org.image.url=${{ github.repositoryUrl }}" \
+          --label "org.image.created=${{ env.JOB_STARTED_AT }}" \
+          --label "org.image.revision=${{ github.ref_name }}" \
+          --label "org.image.version=${{ github.sha }}" \
+          --tag cr.yandex/${{ env.CR_REGISTRY }}/${{ env.CR_IMAGE_STRAPI }}:${{ github.sha }} \
+          -f Dockerfile.prod
+          .
+          docker push cr.yandex/${{ env.CR_REGISTRY }}/${{ env.CR_IMAGE_STRAPI }}:${{ github.sha }}
+          docker tag cr.yandex/${{ env.CR_REGISTRY }}/${{ env.CR_IMAGE_STRAPI }}:${{ github.sha }} \
+            cr.yandex/${{ env.CR_REGISTRY }}/${{ env.CR_IMAGE_STRAPI }}:latest
+          docker push cr.yandex/${{ env.CR_REGISTRY }}/${{ env.CR_IMAGE_STRAPI }}:latest
+    # deploy:
+    # runs-on: mn-strp-gh-runner
+    # needs: [build]
+    # steps:
+    #  - name: Checkout
+    #    uses: actions/checkout@v3
+    #  - name: Deploy Strapi to production
+    #    run: |
+    #      cd ${{ secrets.PRODUCTION_FOLDER }}
+    #      docker compose pull && docker compose up -d
