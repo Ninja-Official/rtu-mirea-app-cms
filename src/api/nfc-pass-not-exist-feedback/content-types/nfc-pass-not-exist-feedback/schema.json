@@ -1,0 +1,34 @@
+{
+  "kind": "collectionType",
+  "collectionName": "nfc_pass_not_exist_feedbacks",
+  "info": {
+    "singularName": "nfc-pass-not-exist-feedback",
+    "pluralName": "nfc-pass-not-exist-feedbacks",
+    "displayName": "NfcPassNotExistFeedback"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "fullName": {
+      "type": "string",
+      "required": true
+    },
+    "group": {
+      "type": "string",
+      "regex": "^([А-Яа-я]{4}-\\d{2}-\\d{2})$",
+      "required": true
+    },
+    "personalNumber": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "studentId": {
+      "type": "string",
+      "unique": true,
+      "required": true
+    }
+  }
+}
