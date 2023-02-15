@@ -36,7 +36,7 @@ services:
     build: 
       context: .
       dockerfile: Dockerfile.prod
-    image: strapi:latest
+    image: ${IMAGE_STRAPI}
     restart: unless-stopped
     env_file: .env
     environment:
