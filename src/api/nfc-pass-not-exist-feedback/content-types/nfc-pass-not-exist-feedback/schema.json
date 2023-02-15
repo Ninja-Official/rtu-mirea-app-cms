@@ -4,7 +4,8 @@
   "info": {
     "singularName": "nfc-pass-not-exist-feedback",
     "pluralName": "nfc-pass-not-exist-feedbacks",
-    "displayName": "NfcPassNotExistFeedback"
+    "displayName": "Nfc Pass Not Exist Feedback",
+    "description": ""
   },
   "options": {
     "draftAndPublish": false
@@ -17,7 +18,6 @@
     },
     "group": {
       "type": "string",
-      "regex": "^([А-Яа-я]{4}-\\d{2}-\\d{2})$",
       "required": true
     },
     "personalNumber": {
