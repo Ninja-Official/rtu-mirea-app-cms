@@ -4,9 +4,9 @@ module.exports = ({ env }) => ({
       jwtSecret: env("JWT_SECRET"),
     },
   },
-  "import-export-entries": {
-    enabled: true,
-  },
+  // "import-export-entries": {
+  //   enabled: true,
+  // },
   "encryptable-field": {
     enabled: true,
   },
