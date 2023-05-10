@@ -130,7 +130,7 @@ WHERE (CONCAT(last_name, ' ', first_name, ' ', middle_name) ~* :query
       }
       const names = matchAll("[ЁёА-я]+\\ [ЁёА-я]\\.[ЁёА-я]", rawNames).slice(
         0,
-        5
+        10
       );
 
       let result = [];
