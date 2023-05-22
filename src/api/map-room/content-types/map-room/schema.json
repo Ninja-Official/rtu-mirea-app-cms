@@ -1,0 +1,24 @@
+{
+  "kind": "collectionType",
+  "collectionName": "map_rooms",
+  "info": {
+    "singularName": "map-room",
+    "pluralName": "map-rooms",
+    "displayName": "Map Room",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "campus": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

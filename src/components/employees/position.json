@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_employees_positions",
+  "info": {
+    "displayName": "Position",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "department": {
+      "type": "string",
+      "required": false
+    },
+    "post": {
+      "type": "string",
+      "required": false
+    },
+    "contacts": {
+      "type": "component",
+      "repeatable": true,
+      "component": "employees.contact"
+    }
+  }
+}

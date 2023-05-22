@@ -1,0 +1,31 @@
+{
+  "collectionName": "components_employees_reception_times",
+  "info": {
+    "displayName": "Reception time",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "timeStart": {
+      "type": "time",
+      "required": true
+    },
+    "timeEnd": {
+      "type": "time",
+      "required": true
+    },
+    "weekday": {
+      "type": "enumeration",
+      "enum": [
+        "monday  ",
+        "tuesday  ",
+        "wednesday  ",
+        "thursday  ",
+        "friday  ",
+        "saturday  ",
+        "sunday"
+      ],
+      "required": true
+    }
+  }
+}

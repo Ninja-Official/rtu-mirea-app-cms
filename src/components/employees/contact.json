@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_employees_contacts",
+  "info": {
+    "displayName": "Contact",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "phone": {
+      "type": "string"
+    },
+    "IP": {
+      "type": "string"
+    },
+    "ipPhone": {
+      "type": "string"
+    },
+    "room": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::map-room.map-room"
+    },
+    "email": {
+      "type": "email"
+    }
+  }
+}
