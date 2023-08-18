@@ -10,12 +10,12 @@
     "strapi": "strapi"
   },
   "dependencies": {
-    "@strapi/plugin-documentation": "4.10.5",
-    "@strapi/plugin-i18n": "4.10.5",
-    "@strapi/plugin-upload": "4.10.5",
-    "@strapi/plugin-users-permissions": "4.10.5",
+    "@strapi/plugin-documentation": "4.12.5",
+    "@strapi/plugin-i18n": "4.12.5",
+    "@strapi/plugin-upload": "4.12.5",
+    "@strapi/plugin-users-permissions": "4.12.5",
     "@strapi/provider-upload-aws-s3-cdn": "file:./providers/provider-upload-aws-s3-cdn",
-    "@strapi/strapi": "4.10.5",
+    "@strapi/strapi": "4.12.5",
     "@webbio/strapi-plugin-scheduler": "^0.1.3",
     "better-sqlite3": "8.0.1",
     "pg": "^8.8.0",
