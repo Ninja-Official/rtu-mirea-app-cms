@@ -128,9 +128,9 @@ WHERE (CONCAT(last_name, ' ', first_name, ' ', middle_name) ~* :query
       if (!rawNames) {
         return ctx.badRequest("Raw names are required");
       }
-      const names = matchAll("[ЁёА-я]+\\ [ЁёА-я]\\.[ЁёА-я]\\.", rawNames).slice(
+      const names = matchAll("[ЁёА-я]+\\ [ЁёА-я]\\.[ЁёА-я]", rawNames).slice(
         0,
-        5
+        10
       );
 
       let result = [];
@@ -142,7 +142,7 @@ SELECT DISTINCT ON ("lastName", "firstName", "middleName")
   last_name AS "lastName", first_name AS "firstName", middle_name AS "middleName"
 FROM search_students_bot_people
 WHERE email LIKE '%@mirea.ru'
-  AND CONCAT(last_name, ' ', SUBSTR(first_name, 1, 1), '.', SUBSTR(middle_name, 1, 1), '.') = :name
+  AND CONCAT(last_name, ' ', SUBSTR(first_name, 1, 1), '.', SUBSTR(middle_name, 1, 1)) = :name
   AND published_at IS NOT NULL
  LIMIT 10`,
             { name }
